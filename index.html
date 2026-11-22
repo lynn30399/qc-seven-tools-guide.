@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>品管七大手法：初學者導覽</title>
+<style>
+:root{--bg:#f7f6f2;--fg:#1f2430;--mut:#667085;--card:#fff;--ac:#1d6fb8;--ac2:#c2410c;--bd:#e2e0d8}
+@media (prefers-color-scheme:dark){:root{--bg:#14171d;--fg:#e8e9ec;--mut:#9aa3b2;--card:#1d222b;--ac:#6cb2f0;--ac2:#f59e6b;--bd:#323946}}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0}
+body{background:var(--bg);color:var(--fg);font:17px/1.65 "Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;display:flex;flex-direction:column}
+main{flex:1;overflow:auto;padding:28px 6vw 12px;max-width:1100px;width:100%;margin:0 auto}
+.slide{display:none}.slide.on{display:block}
+h1{font-size:2rem;margin:.2em 0}h2{font-size:1.55rem;margin:.1em 0 .6em;color:var(--ac)}h3{font-size:1.1rem;margin:.2em 0 .3em}
+ul{padding-left:1.2em;margin:.3em 0}li{margin:.35em 0}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+@media (max-width:760px){.cols{grid-template-columns:1fr}}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:14px 18px}
+table{border-collapse:collapse;width:100%;font-size:.95rem}
+th,td{border-bottom:1px solid var(--bd);padding:7px 8px;text-align:left;vertical-align:top}th{color:var(--mut);font-weight:600}
+.s{color:var(--mut);font-size:.78rem;font-style:normal;white-space:nowrap}
+.note{border-left:4px solid var(--ac2);padding:6px 12px;margin:10px 0;background:var(--card);border-radius:0 8px 8px 0;font-size:.95rem}
+.flow{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:12px 0}
+.flow b{background:var(--ac);color:#fff;border-radius:8px;padding:4px 12px;font-weight:500}
+.bar{display:flex;align-items:center;gap:8px;margin:5px 0;font-size:.92rem}
+.bar span:first-child{width:5.5em}.bar i{display:block;height:18px;background:var(--ac);border-radius:3px}
+nav{display:flex;justify-content:space-between;align-items:center;padding:10px 6vw;border-top:1px solid var(--bd);font-size:.9rem;color:var(--mut)}
+button{font:inherit;background:var(--card);color:var(--fg);border:1px solid var(--bd);border-radius:8px;padding:6px 16px;cursor:pointer}
+</style>
+</head>
+<body>
+<main>
+
+<section class="slide on" id="s1">
+<h1>品管七大手法：初學者導覽</h1>
+<p>目標：讀完 7 張投影片，知道每個工具回答什麼問題、什麼時候用。</p>
+<div class="note">這份簡報只用 LLM Wiki 裡的內容，沒有加入 Wiki 以外的例子。每個重點後面的灰字是出處。</div>
+<h3>出處代號</h3>
+<table>
+<tr><td>課4／課6</td><td>《品質管理 現代化觀念與實務應用》第 4 章／第 6 章，後面是頁碼（主來源，用詞以它為準）</td></tr>
+<tr><td>ASQ七／柏／管</td><td>ASQ 的 Seven Basic Quality Tools、Pareto Chart、Control Chart 三個網頁</td></tr>
+<tr><td>JMP</td><td>JMP 技術部落格（軟體公司，機器翻譯中文版）</td></tr>
+</table>
+<div class="flow"><b>查 Wiki</b>→<b>起草</b>→<b>檢查</b>→<b>發布</b></div>
+</section>
+
+<section class="slide" id="s2">
+<h2>什麼是品管七大手法</h2>
+<ul>
+<li>七項簡易的圖形方法，在品管中用來解決問題或改善品質，通常不需要複雜計算 <i class="s">[課4 p.96]</i></li>
+<li>石川馨博士倡導，他認為超過 95% 的品質相關問題都能用這七項工具解決 <i class="s">[課4 p.96]</i></li>
+<li>七手法不是日本人發明的（特性要因圖除外），日本人的貢獻是推廣並應用 <i class="s">[課4 p.96]</i></li>
+</ul>
+<h3>不同資料的列法不完全一樣</h3>
+<ul>
+<li>ASQ 的第七個是「層別法或流程圖或趨勢圖」：傳統清單含層別法，較新的看法改放流程圖 <i class="s">[ASQ七 p.2]</i></li>
+<li>本簡報採課本的傳統版：<b>檢核表、層別法、柏拉圖、特性要因圖、直方圖、散佈圖、管制圖</b> <i class="s">[課4 p.96]</i></li>
+</ul>
+<div class="note">本簡報不涵蓋「新七大手法」（親和圖等）。</div>
+</section>
+
+<section class="slide" id="s3">
+<h2>七個工具各回答什麼問題</h2>
+<table>
+<tr><th>工具</th><th>用途</th><th>出處</th></tr>
+<tr><td>檢核表</td><td>用簡單的表格或圖把問題查檢出來、記錄次數</td><td class="s">課4 p.96–97</td></tr>
+<tr><td>層別法</td><td>把數據按特性分類，找出差異與問題（是概念，沒有特定圖形）</td><td class="s">課4 p.114</td></tr>
+<tr><td>柏拉圖</td><td>區分少數重要的原因與多數不重要的原因</td><td class="s">課4 p.106</td></tr>
+<tr><td>特性要因圖</td><td>找出造成某個問題的所有可能原因</td><td class="s">課4 p.110</td></tr>
+<tr><td>直方圖</td><td>看數據的分布、中心位置、離散程度，以及和規格的關係</td><td class="s">課4 p.102</td></tr>
+<tr><td>散佈圖</td><td>看兩個變數之間有沒有相關</td><td class="s">課4 p.99</td></tr>
+<tr><td>管制圖</td><td>監視量測值隨時間的變化，判斷製程是否穩定</td><td class="s">課6 p.215</td></tr>
+</table>
+<div class="note">課本有明說的順序：先用<b>柏拉圖</b>篩出重要問題，再用<b>特性要因圖</b>找原因 <i class="s">[課4 p.110]</i>；找到原因後，若特性與要因都是計量值，可用<b>散佈圖</b>驗證 <i class="s">[課4 p.100]</i>。</div>
+</section>
+
+<section class="slide" id="s4">
+<h2>蒐集與分類：檢核表、層別法</h2>
+<div class="cols">
+<div class="card">
+<h3>檢核表（又稱查檢表）</h3>
+<ul>
+<li><b>點檢用</b>：確認作業有沒有做，防止遺漏。例：三次元量床開機檢核表，12 個步驟 <i class="s">[課4 p.97–98]</i></li>
+<li><b>記錄用</b>：用畫記記次數，也叫計數表 <i class="s">[課4 p.98]</i></li>
+<li>ASQ 提醒：check sheet 是記錄資料的工具，不要和 checklist 混淆 <i class="s">[ASQ七 p.3]</i></li>
+</ul>
+<p><b>例：輪圈檢查，不合格共 84 點</b> <i class="s">[課4 p.98]</i></p>
+<div class="bar"><span>切斷毛邊</span><i style="width:100%"></i><span>41</span></div>
+<div class="bar"><span>素材生銹</span><i style="width:29%"></i><span>12</span></div>
+<div class="bar"><span>其他</span><i style="width:20%"></i><span>8</span></div>
+<div class="bar"><span>熔接段差</span><i style="width:17%"></i><span>7</span></div>
+<p class="s">其餘四項：製邊毛尖 6、整形壓傷 5、刻印不明 3、沖孔毛尖 2</p>
+</div>
+<div class="card">
+<h3>層別法</h3>
+<ul>
+<li>影響品質的原因可能在材料、零件、機器、人員或方法，要把數據依特性分類，才看得出差異 <i class="s">[課4 p.114]</i></li>
+<li>使用前先確定目的，例如評定作業員績效、分析不良原因 <i class="s">[課4 p.114]</i></li>
+<li>常見的分類依據有 10 類：員工、組織、原料、時間、環境、設備、作業、銷售、量測、商品。例如時間可分成年、季、月、週、日、上下午 <i class="s">[課4 p.114]</i></li>
+<li>範例：y 與 x₁ 呈正相關；依另一變數 x₂ 分成兩組後仍是正相關，斜率相近但截距不同 <i class="s">[課4 p.115]</i></li>
+</ul>
+</div>
+</div>
+</section>
+
+<section class="slide" id="s5">
+<h2>先找重點，再找原因：柏拉圖 → 特性要因圖</h2>
+<div class="cols">
+<div class="card">
+<h3>柏拉圖</h3>
+<ul>
+<li>目的：分出「少數重要」與「多數不重要」的原因，先處理重要少數 <i class="s">[課4 p.106]</i></li>
+<li>由大到小排列，畫累積百分率曲線；項目一般 5～10 項，其餘併為「其他」 <i class="s">[課4 p.108]</i></li>
+<li>只能指出哪些問題重要，<b>不能指出原因</b> <i class="s">[課4 p.110]</i></li>
+</ul>
+<p><b>例：汽車檢驗，缺點共 210 個</b> <i class="s">[課4 p.109–110]</i></p>
+<div class="bar"><span>灰塵</span><i style="width:100%"></i><span>95（45.23%）</span></div>
+<div class="bar"><span>碰撞</span><i style="width:65%"></i><span>62（累積 74.76%）</span></div>
+<div class="bar"><span>漆太薄</span><i style="width:23%"></i><span>22</span></div>
+<div class="bar"><span>流漆</span><i style="width:12%"></i><span>11</span></div>
+<div class="bar"><span>斑點</span><i style="width:11%"></i><span>10</span></div>
+<div class="bar"><span>其他</span><i style="width:11%"></i><span>10</span></div>
+<p class="s">灰塵和碰撞累積約 75%，是重要的少數</p>
+</div>
+<div class="card">
+<h3>特性要因圖（魚骨圖）</h3>
+<ul>
+<li>石川馨 1943 年發展，因形狀像魚骨而得名；是腦力激盪的工具 <i class="s">[課4 p.110]</i></li>
+<li>大骨通常用 4M：作業員、機器設備、材料、作業方法；也有學者加上量測與環境，稱 6M <i class="s">[課4 p.111]</i></li>
+<li>特性要寫成一看就知道「不好」的形式，較容易找要因 <i class="s">[課4 p.111]</i></li>
+<li>流程：決定特性 → 畫背骨 → 填大骨 → 填次要因 → 檢查遺漏 → 圈出重要原因 → <b>驗證</b> <i class="s">[課4 p.111–112]</i></li>
+</ul>
+</div>
+</div>
+</section>
+
+<section class="slide" id="s6">
+<h2>看分布與看關係：直方圖、散佈圖</h2>
+<div class="cols">
+<div class="card">
+<h3>直方圖</h3>
+<ul>
+<li>把數據分成區間，統計每個區間的次數，畫成長條 <i class="s">[課4 p.102]</i></li>
+<li>可看出分布形態、中心位置、離散程度、與規格的關係 <i class="s">[課4 p.102]</i></li>
+<li>和條形圖不同：直方圖的長條寬度代表該類別涵蓋的範圍 <i class="s">[課4 p.102]</i></li>
+</ul>
+<table>
+<tr><th>形狀</th><th>可能的意思</th></tr>
+<tr><td>鐘型</td><td>數據為（或接近）常態分配 <i class="s">[課4 p.105]</i></td></tr>
+<tr><td>雙峰</td><td>混合兩個鐘型：兩部機器、兩組操作員、兩個班別、兩種原料或兩條生產線 <i class="s">[課4 p.105]</i></td></tr>
+<tr><td>截斷型</td><td>某些數據被移除，例如 100% 全檢剔除不合格品 <i class="s">[課4 p.106]</i></td></tr>
+</table>
+<p class="s">課本共列 8 種形狀，這裡只放 3 種。</p>
+</div>
+<div class="card">
+<h3>散佈圖</h3>
+<ul>
+<li>用來看兩個變數的相關性；原因放 X 軸，結果放 Y 軸 <i class="s">[課4 p.99]</i></li>
+<li>三種型態：正相關（左下到右上）、負相關（左上到右下）、無相關（近似圓形）<i class="s">[課4 p.99–100]</i></li>
+<li>相關係數介於 −1 到 +1，表示關係的強弱 <i class="s">[課4 p.100]</i></li>
+</ul>
+<div class="note"><b>相關不等於因果。</b>冷氣機與冰淇淋的銷售量呈正相關，但冰淇淋銷量不會影響冷氣機銷量，真正的原因是溫度 <i class="s">[課4 p.99]</i></div>
+</div>
+</div>
+</section>
+
+<section class="slide" id="s7">
+<h2>管制圖：製程穩不穩？</h2>
+<div class="cols">
+<div class="card">
+<ul>
+<li>1924 年由蕭華特發明；有中心線與上、下管制界限，圖上的點是樣本統計量 <i class="s">[課6 p.215]</i></li>
+<li>點都在界限內、也沒有非隨機變化 → <b>統計管制內</b>；有點超出或有非隨機變化 → <b>管制外</b>，代表有可歸屬原因 <i class="s">[課6 p.215]</i></li>
+<li>管制圖只負責偵測與警示，消除原因要靠人採取矯正行動 <i class="s">[課6 p.218]</i></li>
+<li>界限通常放在中心線 ±3 倍 sigma <i class="s">[JMP p.1]</i></li>
+</ul>
+<h3>判異訊號（ASQ）</h3>
+<ul>
+<li>單一點落在管制界限外</li>
+<li>連續 3 點有 2 點同側且超過 2σ；連續 5 點有 4 點同側且超過 1σ</li>
+<li>連續 8 點在中心線同一側</li>
+<li>明顯持續的型態 <i class="s">[ASQ管]</i></li>
+</ul>
+<p class="s">課本提醒：製程已穩定、進入監控階段（階段 II）時，不建議用輔助法則提高靈敏度，因為會增加錯誤警告率 [課6 p.218]。它和上面的訊號是不是同一套，資料中沒有說明。</p>
+</div>
+<div class="card">
+<h3>管制界限 ≠ 規格界限</h3>
+<table>
+<tr><th></th><th>管制界限</th><th>規格界限</th></tr>
+<tr><td>來源</td><td>由數據計算</td><td>顧客或設計提供</td></tr>
+<tr><td>套用在</td><td>彙總統計量</td><td>個別測量值</td></tr>
+<tr><td>代表</td><td>製程的聲音</td><td>顧客的聲音</td></tr>
+</table>
+<p class="s">[JMP p.1–2]</p>
+<div class="note">穩定不代表有能力。JMP 的範例中，所有製程都穩定，但只有約 1/3 滿足規格 <i class="s">[JMP p.1–2]</i></div>
+<div class="note">本簡報沒有涵蓋：各種管制圖的種類與計算公式（資料中沒有完整說明）。</div>
+</div>
+</div>
+</section>
+
+</main>
+<nav>
+<button id="prev">← 上一張</button>
+<span id="pg">1 / 7</span>
+<button id="next">下一張 →</button>
+</nav>
+<script>
+(function(){
+var s=document.querySelectorAll('.slide'),i=0,pg=document.getElementById('pg');
+function go(n){
+  i=Math.max(0,Math.min(s.length-1,n));
+  for(var k=0;k<s.length;k++){s[k].classList.toggle('on',k===i);}
+  pg.textContent=(i+1)+' / '+s.length;
+  document.querySelector('main').scrollTop=0;
+  try{history.replaceState(null,'','#s'+(i+1));}catch(e){}
+}
+document.getElementById('prev').onclick=function(){go(i-1);};
+document.getElementById('next').onclick=function(){go(i+1);};
+document.addEventListener('keydown',function(e){
+  if(e.key==='ArrowRight'||e.key===' ')go(i+1);
+  if(e.key==='ArrowLeft')go(i-1);
+});
+var h=parseInt((location.hash||'').replace('#s',''),10);
+if(h>=1&&h<=s.length)go(h-1);
+})();
+</script>
+</body>
+</html>
